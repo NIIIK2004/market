@@ -1,0 +1,152 @@
+.split {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: -1;
+}
+
+.left {
+    left: 0;
+    background: var(--mint);
+}
+
+.right {
+    right: 0;
+    background: var(--koja);
+}
+
+
+.form-wrapper {
+    overflow: hidden;
+    border-radius: 30px;
+    position: relative;
+    margin-top: 65px;
+    height: 792px;
+}
+
+.form-container {
+    padding: 30px;
+    border-radius: 20px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 506px;
+}
+
+.form-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-top span {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+    color: var(--gray);
+}
+
+.form_title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 140%;
+    color: var(--black);
+}
+
+.form__inner-auth,
+.form__inner {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.form__inner-auth {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.form-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-block label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    color: #000;
+}
+
+.form-block input {
+    color: var(--gray);
+    border: 1px solid var(--gray);
+    border-radius: 10px;
+    padding: 17.5px 15px;
+    outline: none;
+    transition: all .3s;
+    width: 100%;
+}
+
+input:not(:placeholder-shown),
+.form-block input:focus {
+    color: var(--violet);
+    border: 1px solid var(--violet);
+}
+
+.form-block-btn {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+}
+
+.form-block-btn button {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 140%;
+    color: white;
+    transition: all .3s;
+    border-radius: 10px;
+    padding: 16px 128px;
+    width: 100%;
+    background: var(--violet);
+}
+
+.form-block-btn button:hover {
+    background: #9038FF;
+}
+
+.form-block-btn a,
+.form-block-btn p {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    color: var(--black);
+    transition: all .3s;
+}
+
+.form-block-btn a:hover {
+    color: var(--violet);
+}
+
+.error {
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    border: 1px solid var(--violet);
+    color: var(--violet);
+    border-radius: 13px;
+    padding: 19px;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+
+
+

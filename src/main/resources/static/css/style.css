@@ -1,0 +1,38 @@
+:root {
+    --koja: #ebb099;
+    --mint: #95bcb0;
+    --black: #2b2b2b;
+    --gray: #b5b5b5;
+    --violet: #935DD9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1562px;
+    margin: 0 auto;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: white;
+}
+
+a,
+button,
+input {
+    font-family: 'Inter', sans-serif;
+}
+
+button {
+    border: 1px solid transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style: auto;
+}
+

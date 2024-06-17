@@ -1,0 +1,22 @@
+Запрос на АДМИНА в sql - UPDATE users_roles SET roles = 'ADMIN' WHERE user_id = '1';
+
+Библиотека - https://github.com/NIIIK2004/library2.git
+
+Блог новостей - https://github.com/NIIIK2004/bid.git
+
+Сервис по заявкам - https://github.com/NIIIK2004/form.git
+
+Сервис по товарам - https://github.com/NIIIK2004/market.git
+
+
+Figma - https://www.figma.com/design/rfKQQnd9bzXZe5t9rNPjo2/%D0%94%D0%B5%D0%BC%D0%AD%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD?node-id=4-275&t=p8VomvF1Nk5qWN9U-1
+
+
+
+
+
+
+
+НЕ ЗАБЫТЬ ИЗМЕНИТЬ КНОПКУ НАЗАД В create.html
+ТАКЖЕ ДОБАВИТЬ h1 Создание заявки продукту новости
+ПОМЕНЯТЬ В АВТОРИЗАЦИИ В ПОЛЯХ ПРИЖУМАЙТЕ ПАРОЛЬ И ЛОГИН НА ВВЕДИТЕ

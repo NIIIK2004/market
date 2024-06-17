@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все заявки</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+</head>
+<style>
+    input:not(:placeholder-shown), .form-block input:focus {
+        color: black;
+        border: 1px solid transparent;
+    }
+
+    ul {
+        list-style: none;
+    }
+</style>
+<body>
+
+<section>
+    <div class="container">
+        <div class="object_wrapper">
+            <div class="object_wrapper-top">
+                <div class="object_wrapper-top-left">
+                    <a th:href="@{/}">
+                        <p th:if="${#authorization.expression('hasAuthority(''Администратор'')')}">Пользовательский
+                            рынок</p>
+                        <p class="active-link" th:if="${#authorization.expression('hasAuthority(''Пользователь'')')}">
+                            Рынок для всех</p>
+                    </a>
+                    <a th:if="${#authorization.expression('hasAuthority(''Пользователь'')')}" th:href="@{/my}">
+                        <p>Ваши товары</p>
+                    </a>
+
+                </div>
+                <div class="object_wrapper-top-right">
+                    <div class="search">
+                        <img th:src="@{/images/search.svg}">
+                        <input type="search" placeholder="Поиск...">
+                    </div>
+                    <ul>
+                        <li><img th:src="@{/images/setting.svg}"></li>
+                        <li><img th:src="@{/images/folder.svg}"></li>
+                        <li><img th:src="@{/images/send.svg}"></li>
+                        <li><img th:src="@{/images/user.svg}"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="object_wrapper_blocks">
+                <ul class="allObject">
+                    <li th:each="product : ${allProducts}">
+                        <h1 th:text="${product.name}"></h1>
+                        <div class="line"></div>
+                        <p th:text="${product.description}"></p>
+                        <div class="object_wrapper_block-bottom">
+                            <p th:text="${product.price} + 'Р'"></p>
+                            <p th:if="${product.booked}" th:text="'Забронировано: ' + ${product.bookedBy.username}"></p>
+                        </div>
+                        <div class="actionObject" th:if="${!product.booked && !product.user.username.equals(#authentication.name) && #authorization.expression('hasAuthority(''Пользователь'')')}">
+                            <a th:href="@{/product/book/{id}(id=${product.id})}">Забронировать</a>
+                        </div>
+                        <div class="actionObject" th:if="${product.booked && product.bookedBy.username.equals(#authentication.name)}">
+                            <a th:href="@{/product/cancelBooking/{id}(id=${product.id})}">Отменить бронь</a>
+                        </div>
+                        <div class="actionObject" th:if="${product.user.username.equals(#authentication.name) || #authorization.expression('hasAuthority(''Администратор'')')}">
+                            <a th:href="@{/product/delete/{id}(id=${product.id})}">Удалить продукт</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="object_bottom">
+            <div class="object_bottom-left">
+                <a th:href="@{/logout}">Войти в другой аккаунт</a>
+                <p th:text="${'Ваша роль: ' + user.roles}">Вы пользователь</p>
+            </div>
+            <div class="object_bottom-right">
+                <a th:href="@{/product/create}" th:if="${#authorization.expression('hasAuthority(''Пользователь'')')}">Создать
+                    заявку</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

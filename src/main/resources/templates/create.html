@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все новости</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+</head>
+<style>
+    input:not(:placeholder-shown), .form-block input:focus {
+        color: black;
+        border: 1px solid transparent;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .allObject {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        grid-template-columns: unset;
+        margin-top: 0;
+    }
+</style>
+<body>
+
+<section>
+    <form th:action="@{/product/save}" th:object="${product}" method="post">
+        <div class="container">
+
+            <div class="object_wrapper" style="position:relative;">
+                <div class="object_wrapper-top">
+                    <a th:href="@{/}">Назад</a>
+                </div>
+                <div class="object_wrapper_blocks">
+                    <ul class="allObject">
+                        <li>
+                            <input type="text" id="title" th:field="*{name}" class="form-control" required
+                                   placeholder="Введите название">
+                            <div class="line"></div>
+
+                            <textarea id="content" th:field="*{description}" required
+                                      placeholder="Описание введите тут...."></textarea>
+
+                            <div class="">
+                                <input type="text" id="price" th:field="*{price}" class="form-control" required
+                                       placeholder="Цена:">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="object_bottom">
+                <div class="object_bottom-left">
+                    <div th:if="${errorMessage != null}">
+                        <p th:text="${errorMessage}" style="color: red;"></p>
+                    </div>
+                </div>
+                <div class="object_bottom-right">
+                    <button type="submit">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
